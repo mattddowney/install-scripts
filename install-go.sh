@@ -1,6 +1,7 @@
 #!/bin/bash
 
 INSTALL_LOCATION="/usr/local"
+SYMLINK_LOCATION="/usr/local/bin"
 PLATFORM="linux-amd64"
 
 # get the currently installed version
@@ -25,6 +26,11 @@ wget $download_link
 
 # extract the archive to the install location
 tar xzf $download_file -C $INSTALL_LOCATION
+
+# create symlinks
+ln -s "$INSTALL_LOCATION/go/bin/go" "$SYMLINK_LOCATION/go"
+ln -s "$INSTALL_LOCATION/go/bin/gofmt" "$SYMLINK_LOCATION/gofmt"
+ln -s "$INSTALL_LOCATION/go/bin/godoc" "$SYMLINK_LOCATION/godoc"
 
 # remove the archive
 rm $download_file
