@@ -21,4 +21,4 @@ add-apt-repository \
 apt-get update
 
 # install the latest version of docker
-apt-get install docker-ce
+apt-get install -y docker-ce
