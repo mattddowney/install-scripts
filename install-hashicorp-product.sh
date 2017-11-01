@@ -39,6 +39,9 @@ then
     exit
 fi
 
+# need to have unzip
+apt-get install unzip -y
+
 # build the archive filename
 archive_filename="${product}_${release_version}_${PLATFORM}.zip"
 
