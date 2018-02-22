@@ -4,6 +4,12 @@ INSTALL_LOCATION="/usr/local"
 SYMLINK_LOCATION="/usr/local/bin"
 PLATFORM="linux-amd64"
 
+# ensure user is root
+if [ "$EUID" -ne 0 ]
+  then echo "Must be run as root. Aborting."
+  exit 1
+fi
+
 # get the currently installed version
 installed_version=$($INSTALL_LOCATION/go/bin/go version | cut -d' ' -f3)
 

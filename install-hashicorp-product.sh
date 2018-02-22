@@ -11,6 +11,12 @@ RELEASE_SERVER="https://releases.hashicorp.com"
 
 product=$1
 
+# ensure user is root
+if [ "$EUID" -ne 0 ]
+  then echo "Must be run as root. Aborting."
+  exit 1
+fi
+
 if [ -z "$product" ]
 then
     echo "Usage:"

@@ -1,6 +1,12 @@
 #!/bin/bash
 # install docker on ubuntu 64 bit
 
+# ensure user is root
+if [ "$EUID" -ne 0 ]
+  then echo "Must be run as root. Aborting."
+  exit 1
+fi
+
 # install required packages
 apt-get install -y \
     apt-transport-https \
