@@ -29,8 +29,8 @@ fi
 release_link=$(curl -s "$RELEASE_SERVER/$product/" | grep "<a href=\"/$product/" | head -1)
 
 # parse the link
-release_href=$(echo $release_link | cut -d'"' -f2)
-release_version=$(echo $release_link | cut -d'>' -f2 | cut -d'<' -f1 | cut -d'_' -f2 )
+release_href=$(echo "$release_link" | cut -d'"' -f2)
+release_version=$(echo "$release_link" | cut -d'>' -f2 | cut -d'<' -f1 | cut -d'_' -f2 )
 
 # if current version is the latest, don't install
 if [ "$product_version" == "$release_version" ]
@@ -56,7 +56,7 @@ then
 fi
 
 # download the release
-wget $release_url
+wget "$release_url"
 
 # backup product if it exists
 if [ -e "$absolute_path" ]
@@ -68,7 +68,7 @@ then
 fi
 
 # unzip the archive to the install location
-unzip $archive_filename -d $INSTALL_LOCATION
+unzip "$archive_filename" -d $INSTALL_LOCATION
 
 # remove the archive
-rm $archive_filename
+rm "$archive_filename"
