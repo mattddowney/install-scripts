@@ -28,7 +28,7 @@ fi
 absolute_path="$INSTALL_LOCATION/$product"
 if [ -e "$absolute_path" ]
 then
-    product_version=$($absolute_path version | head -1 | cut -d'v' -f2)
+    product_version=$($absolute_path version | head -1 | cut -d'v' -f2 | cut -d' ' -f1)
 fi
 
 # get the first link
