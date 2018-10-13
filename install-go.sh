@@ -10,6 +10,10 @@ if [ "$EUID" -ne 0 ]
   exit 1
 fi
 
+# install required packages
+apt-get install -y \
+    curl
+
 # get the currently installed version
 installed_version=$($INSTALL_LOCATION/go/bin/go version | cut -d' ' -f3)
 
