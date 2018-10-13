@@ -8,6 +8,11 @@ if [ "$EUID" -ne 0 ]
   exit 1
 fi
 
+# install required packages
+apt-get install -y \
+    curl \
+    jq
+
 # get the latest release info from the github API
 api_output=$(curl https://api.github.com/repos/docker/compose/releases/latest)
 
