@@ -24,6 +24,10 @@ then
     exit
 fi
 
+# install required packages
+apt-get install -y \
+    curl
+
 # get current product version, if it exists
 absolute_path="$INSTALL_LOCATION/$product"
 if [ -e "$absolute_path" ]
