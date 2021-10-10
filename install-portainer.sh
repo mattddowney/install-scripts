@@ -9,7 +9,7 @@ if [ "$EUID" -ne 0 ]
 fi
 
 # ensure docker is installed
-which docker > /dev/null
+command -v docker > /dev/null
 if [ "$?" -ne 0 ]
   then echo "Docker not installed. Aborting."
   exit 2
