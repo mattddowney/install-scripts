@@ -21,6 +21,6 @@ docker run \
   --restart=always \
   --volume=/var/run/docker.sock:/var/run/docker.sock \
   --volume=portainer_data:/data \
-  --publish=9000:9000 \
+  --publish=9443:9443 \
   --detach \
   portainer/portainer-ce
