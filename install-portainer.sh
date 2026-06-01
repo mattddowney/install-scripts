@@ -21,6 +21,9 @@ docker run \
   --restart=always \
   --volume=/var/run/docker.sock:/var/run/docker.sock \
   --volume=portainer_data:/data \
+  # portainer UI
   --publish=9443:9443 \
+  # required for edge agent connections
+  --publish=8000:8000 \
   --detach \
   portainer/portainer-ce
