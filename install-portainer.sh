@@ -26,4 +26,4 @@ docker run \
   # required for edge agent connections
   --publish=8000:8000 \
   --detach \
-  portainer/portainer-ce
+  portainer/portainer-ce:lts
